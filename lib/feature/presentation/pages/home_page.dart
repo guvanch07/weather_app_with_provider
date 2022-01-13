@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:weather_app_with_geolocation/core/const/const.dart';
+import 'package:weather_app_with_geolocation/core/const/geolocator.dart';
 import 'package:weather_app_with_geolocation/feature/data/datasource/dataset.dart';
 import 'package:weather_app_with_geolocation/feature/presentation/widgets/current_weather.dart';
 import 'package:weather_app_with_geolocation/feature/presentation/widgets/today_widget.dart';
@@ -11,13 +14,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
+
+  var longitude = 'long';
+  var latitude = 'lat';
+
   getData() async {
-    fetchData(lat, lon, city).then((value) {
+    Position pos = await determinePosition();
+    List<Placemark> pm = await placemarkFromCoordinates(pos.latitude, pos.longitude);
+    Placemark place = pm[0];
+    fetchData(pos.latitude.toString(), pos.longitude.toString(), place.locality.toString()).then((value) {
       currentTemp = value[0];
       todayWeather = value[1];
       tomorrowTemp = value[2];
       sevenDay = value[3];
-      setState(() {});
+      
     });
   }
 

@@ -23,7 +23,7 @@ Future<List> fetchData(String lat, String lon, String city) async {
         wind: current["wind_speed"]?.round() ?? 0,
         humidity: current["humidity"]?.round() ?? 0,
         chanceRain: current["uvi"]?.round() ?? 0,
-        location: city,
+        location: city ,
         image: findIcon(current["weather"][0]["main"].toString(), true));
 
     //today weather
