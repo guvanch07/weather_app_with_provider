@@ -5,6 +5,7 @@ import 'package:flutter_glow/flutter_glow.dart';
 import 'package:weather_app_with_geolocation/core/const/const.dart';
 import 'package:weather_app_with_geolocation/feature/data/datasource/dataset.dart';
 import 'package:weather_app_with_geolocation/feature/presentation/widgets/extra_weather.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CurrentWeather extends StatefulWidget {
   final Function() updateData;
@@ -32,7 +33,7 @@ class _CurrentWeatherState extends State<CurrentWeather> {
         }
       },
       child: GlowContainer(
-        height: MediaQuery.of(context).size.height - 230,
+        height: MediaQuery.of(context).size.height - 230.h,
         margin: const EdgeInsets.all(2),
         padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
         glowColor: const Color(0xff00A1FF).withOpacity(0.5),
@@ -128,13 +129,19 @@ class _CurrentWeatherState extends State<CurrentWeather> {
               ),
             ),
             SizedBox(
-              height: 430,
+              height: 240.h,
               child: Stack(
                 children: [
-                  Image(
-                    image: AssetImage(currentTemp.image ?? ''),
-                    fit: BoxFit.fill,
+                  SizedBox(
+                    height: 200.w,
+                    width: 200.w,
+                    child: Image(
+                      
+                      image: AssetImage(currentTemp.image ?? ''),
+                      // fit: BoxFit.fill,
+                    ),
                   ),
+                  
                   Positioned(
                     bottom: 0,
                     right: 0,
@@ -144,9 +151,9 @@ class _CurrentWeatherState extends State<CurrentWeather> {
                       children: [
                         GlowText(
                           currentTemp.current.toString(),
-                          style: const TextStyle(
+                          style: TextStyle(
                               height: 0.1,
-                              fontSize: 150,
+                              fontSize: 130.sp,
                               fontWeight: FontWeight.bold),
                         ),
                         Text(currentTemp.name ?? '',
@@ -169,7 +176,7 @@ class _CurrentWeatherState extends State<CurrentWeather> {
             const SizedBox(
               height: 10,
             ),
-            ExtraWeather(currentTemp)
+            Expanded(child: ExtraWeather(currentTemp))
           ],
         ),
       ),

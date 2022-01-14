@@ -26,6 +26,9 @@ dependencies:
   http: any
   intl: any
   geolocator: ^8.0.3
+  flutter_screenutil: ^5.0.4
+  get: ^4.6.1
+  geocoding: ^2.0.2
 
 dev_dependencies:
   flutter_test:

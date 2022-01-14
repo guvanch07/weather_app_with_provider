@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app_with_geolocation/core/const/const.dart';
 import 'package:weather_app_with_geolocation/feature/presentation/pages/detail_page.dart';
 import 'package:weather_app_with_geolocation/feature/presentation/widgets/weather_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TodayWeather extends StatelessWidget {
   const TodayWeather({Key? key}) : super(key: key);
@@ -30,15 +31,15 @@ class TodayWeather extends StatelessWidget {
                   }));
                 },
                 child: Row(
-                  children: const [
+                  children:  [
                     Text(
                       "7 days ",
-                      style: TextStyle(fontSize: 18, color: Colors.grey),
+                      style: TextStyle(fontSize: 18.sp, color: Colors.grey),
                     ),
                     Icon(
                       Icons.arrow_forward_ios_outlined,
                       color: Colors.grey,
-                      size: 15,
+                      size: 15.sp,
                     )
                   ],
                 ),
