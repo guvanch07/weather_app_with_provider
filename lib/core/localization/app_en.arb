@@ -1,0 +1,6 @@
+{
+  "appTitle": "weather_app_with_geolocation",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}

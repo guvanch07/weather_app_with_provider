@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_glow/flutter_glow.dart';
+import 'package:weather_app_with_geolocation/core/gaolocator.dart';
 
 import 'package:weather_app_with_geolocation/feature/data/datasource/weather_model.dart';
 import 'package:weather_app_with_geolocation/feature/presentation/widgets/extra_weather.dart';
@@ -19,6 +20,15 @@ class TomorrowWeather extends StatelessWidget {
           bottomLeft: Radius.circular(60), bottomRight: Radius.circular(60)),
       child: Column(
         children: [
+          // SizedBox(height: 30),
+          // MaterialButton(
+          //     child: Text('position'),
+          //     minWidth: 30,
+          //     height: 50,
+          //     color: Colors.amber,
+          //     onPressed: () {
+          //       determinePosition();
+          //     }),
           Padding(
             padding:
                 const EdgeInsets.only(top: 50, right: 30, left: 30, bottom: 20),
