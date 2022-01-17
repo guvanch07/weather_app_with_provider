@@ -136,12 +136,10 @@ class _CurrentWeatherState extends State<CurrentWeather> {
                     height: 200.w,
                     width: 200.w,
                     child: Image(
-                      
                       image: AssetImage(currentTemp.image ?? ''),
                       // fit: BoxFit.fill,
                     ),
                   ),
-                  
                   Positioned(
                     bottom: 0,
                     right: 0,
@@ -176,7 +174,10 @@ class _CurrentWeatherState extends State<CurrentWeather> {
             const SizedBox(
               height: 10,
             ),
-            Expanded(child: ExtraWeather(currentTemp))
+            Expanded(
+                child: ExtraWeather(
+              temp: currentTemp,
+            ))
           ],
         ),
       ),

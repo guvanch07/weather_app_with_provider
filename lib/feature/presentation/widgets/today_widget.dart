@@ -31,7 +31,7 @@ class TodayWeather extends StatelessWidget {
                   }));
                 },
                 child: Row(
-                  children:  [
+                  children: [
                     Text(
                       "7 days ",
                       style: TextStyle(fontSize: 18.sp, color: Colors.grey),

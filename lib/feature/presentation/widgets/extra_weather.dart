@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:weather_app_with_geolocation/feature/data/datasource/weather_model.dart';
 
 class ExtraWeather extends StatelessWidget {
   final Weather temp;
-  ExtraWeather(this.temp);
+  const ExtraWeather({
+    Key? key,
+    required this.temp,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

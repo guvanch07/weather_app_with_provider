@@ -27,8 +27,9 @@ dependencies:
   intl: any
   geolocator: ^8.0.3
   flutter_screenutil: ^5.0.4
-  get: ^4.6.1
   geocoding: ^2.0.2
+  equatable: ^2.0.3
+  provider: ^6.0.2
 
 dev_dependencies:
   flutter_test:
@@ -46,5 +47,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/rainy_2d.png
+    - assets/rainy.png
+    - assets/snow_2d.png
+    - assets/snow.png
+    - assets/sunny_2d.png
+    - assets/sunny.png
+    - assets/thunder_2d.png
+    - assets/thunder.png
   
 

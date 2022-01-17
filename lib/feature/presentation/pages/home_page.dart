@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
@@ -5,38 +7,23 @@ import 'package:geolocator/geolocator.dart';
 import 'package:weather_app_with_geolocation/core/const/const.dart';
 import 'package:weather_app_with_geolocation/core/const/geolocator.dart';
 import 'package:weather_app_with_geolocation/feature/data/datasource/dataset.dart';
+import 'package:weather_app_with_geolocation/feature/presentation/notifiers/geolocation_listiners.dart';
 import 'package:weather_app_with_geolocation/feature/presentation/widgets/current_weather.dart';
 import 'package:weather_app_with_geolocation/feature/presentation/widgets/today_widget.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
-
-
-  var longitude = 'long';
-  var latitude = 'lat';
-
-  getData() async {
-    Position pos = await determinePosition();
-    List<Placemark> pm = await placemarkFromCoordinates(pos.latitude, pos.longitude);
-    Placemark place = pm[0];
-    fetchData(pos.latitude.toString(), pos.longitude.toString(), place.locality.toString()).then((value) {
-      currentTemp = value[0];
-      todayWeather = value[1];
-      tomorrowTemp = value[2];
-      sevenDay = value[3];
-      
-    });
-  }
-
   @override
   void initState() {
     super.initState();
-    getData();
+    context.read<LocationPoint>().locationPoint();
   }
 
   @override
@@ -50,7 +37,7 @@ class _HomePageState extends State<HomePage> {
           : Column(
               children: [
                 CurrentWeather(
-                  updateData: getData,
+                  updateData: context.read<LocationPoint>().locationPoint,
                 ),
                 const TodayWeather()
               ],

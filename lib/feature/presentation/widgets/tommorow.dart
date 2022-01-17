@@ -126,7 +126,9 @@ class TomorrowWeather extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                ExtraWeather(tomorrowTemp)
+                ExtraWeather(
+                  temp: tomorrowTemp,
+                )
               ],
             ),
           )

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:weather_app_with_geolocation/core/api/api_key.dart';
@@ -23,7 +24,7 @@ Future<List> fetchData(String lat, String lon, String city) async {
         wind: current["wind_speed"]?.round() ?? 0,
         humidity: current["humidity"]?.round() ?? 0,
         chanceRain: current["uvi"]?.round() ?? 0,
-        location: city ,
+        location: city,
         image: findIcon(current["weather"][0]["main"].toString(), true));
 
     //today weather
@@ -54,7 +55,7 @@ Future<List> fetchData(String lat, String lon, String city) async {
     List<Weather> sevenDay = [];
     for (var i = 1; i < 8; i++) {
       String day = DateFormat("EEEE")
-          .format(DateTime(date.year, date.month, date.day + i + 1))
+          .format(DateTime(date.year, date.month, date.day + (i + 1)))
           .substring(0, 3);
       var temp = res["daily"][i];
       var hourly = Weather(
